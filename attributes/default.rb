@@ -30,7 +30,8 @@ default['visualstudio']['100']['install_dir'] = (ENV['ProgramFiles(x86)'] || 'C:
 
 # Set this attribute to the folder which contains the ISO
 default['visualstudio']['source'] = 'C:\Share\visualstudio'
-  
+
+# VS 2008 Professional
 default['visualstudio']['90']['professional']['installer_file'] = 'Setup\setup.exe'
 default['visualstudio']['90']['professional']['filename'] =
   'en_visual_studio_2008_professional_x86_dvd_x14-26326.iso'
@@ -39,6 +40,7 @@ default['visualstudio']['90']['professional']['package_name'] =
 default['visualstudio']['90']['professional']['checksum'] =
   '52ebf5731b75ccc460384ce3fd25bc984fb2d828ae51501ebaf0cadc27a33ee9'
 
+# VS 2008 Service Pack 1
 default['visualstudio']['90']['sp1']['installer_file'] = 'vs90sp1\SPInstaller.exe'
 default['visualstudio']['90']['sp1']['filename'] =
   'en_visual_studio_2008_service_pack_1_x86_dvd_x15-12962.iso'
@@ -46,6 +48,15 @@ default['visualstudio']['90']['sp1']['package_name'] =
   'Microsoft Visual Studio 2008 Service Pack 1'
 default['visualstudio']['90']['sp1']['checksum'] =
   '580f717269faa10cf668140ef0a1a264cec194e20a0083cb0d0004a897cc675e'
+  
+# VS 2010 Premium
+default['visualstudio']['100']['premium']['installer_file'] = 'Setup\setup.exe'
+default['visualstudio']['100']['premium']['filename'] =
+  'en_visual_studio_2010_premium_x86_dvd_509357.iso'
+default['visualstudio']['100']['premium']['package_name'] =
+  'Microsoft Visual Studio Premium 2010'
+default['visualstudio']['100']['premium']['checksum'] =
+  '477f6f71b58394e1d3abf61d0ba40adf4052c6eaec9bc6340bb1386fa6119c9a'
 
 # VS 2012 Test Professional
 default['visualstudio']['testprofessional']['installer_file'] = 'vs_testprofessional.exe'
