@@ -20,14 +20,32 @@
 
 default['visualstudio']['enable_nuget_package_restore'] = true
 
-default['visualstudio']['edition'] = 'ultimate' # or premium, professional, testprofessional
+default['visualstudio']['90']['edition'] = 'professional'
+default['visualstudio']['100']['edition'] = 'premium'
 
-# Currently you cannot change this, doing so will break the cookbook
-default['visualstudio']['install_dir'] = (ENV['ProgramFiles(x86)'] || 'C:\Program Files (x86)') +
-  '\Microsoft Visual Studio 11.0'
+default['visualstudio']['90']['install_dir'] = (ENV['ProgramFiles(x86)'] || 'C:\Program Files (x86)') +
+  '\Microsoft Visual Studio 9.0'
+default['visualstudio']['100']['install_dir'] = (ENV['ProgramFiles(x86)'] || 'C:\Program Files (x86)') +
+  '\Microsoft Visual Studio 10.0'
 
-# Set this attribute your self to the FQDN of the folder which contains the ISO
-# default['visualstudio']['source'] = 'http://example.com:8080/visualstudio'
+# Set this attribute to the folder which contains the ISO
+default['visualstudio']['source'] = 'C:\Share\visualstudio'
+  
+default['visualstudio']['90']['professional']['installer_file'] = 'Setup\setup.exe'
+default['visualstudio']['90']['professional']['filename'] =
+  'en_visual_studio_2008_professional_x86_dvd_x14-26326.iso'
+default['visualstudio']['90']['professional']['package_name'] =
+  'Microsoft Visual Studio Professional 2008'
+default['visualstudio']['90']['professional']['checksum'] =
+  '52ebf5731b75ccc460384ce3fd25bc984fb2d828ae51501ebaf0cadc27a33ee9'
+
+default['visualstudio']['90']['sp1']['installer_file'] = 'vs90sp1\SPInstaller.exe'
+default['visualstudio']['90']['sp1']['filename'] =
+  'en_visual_studio_2008_service_pack_1_x86_dvd_x15-12962.iso'
+default['visualstudio']['90']['sp1']['package_name'] =
+  'Microsoft Visual Studio 2008 Service Pack 1'
+default['visualstudio']['90']['sp1']['checksum'] =
+  '580f717269faa10cf668140ef0a1a264cec194e20a0083cb0d0004a897cc675e'
 
 # VS 2012 Test Professional
 default['visualstudio']['testprofessional']['installer_file'] = 'vs_testprofessional.exe'
