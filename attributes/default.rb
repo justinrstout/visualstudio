@@ -57,6 +57,15 @@ default['visualstudio']['100']['premium']['package_name'] =
   'Microsoft Visual Studio Premium 2010'
 default['visualstudio']['100']['premium']['checksum'] =
   '477f6f71b58394e1d3abf61d0ba40adf4052c6eaec9bc6340bb1386fa6119c9a'
+  
+# VS 2010 Service Pack 1
+default['visualstudio']['100']['sp1']['installer_file'] = 'Setup.exe'
+default['visualstudio']['100']['sp1']['filename'] =
+  'mu_visual_studio_2010_sp1_x86_dvd_651704.iso'
+default['visualstudio']['100']['sp1']['package_name'] =
+  'Microsoft Visual Studio 2010 Service Pack 1'
+default['visualstudio']['100']['sp1']['checksum'] =
+  'fce24f0e3f95fdeb54b806be3266f3b61a1e6b5b78c7e6c13c36fc1a6f5ba0ad'
 
 # VS 2012 Test Professional
 default['visualstudio']['testprofessional']['installer_file'] = 'vs_testprofessional.exe'
