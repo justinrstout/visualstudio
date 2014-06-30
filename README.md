@@ -1,9 +1,7 @@
 # VisualStudio Cookbook
-This Chef cookbook installs Visual Studio 2012 from an ISO.
+This Chef cookbook installs Visual Studio and related products.
 
 # Requirements
-
-This cookbook assumes .NET 4.5 has already been installed and rebooted the system before running the VisualStudio cookbook. If you forget to install .NET 4.5 first this cookbook will log a warning.
 
 This cookbook requires 7-zip to be installed so it can extract the ISO. To ensure this happens this cookbook includes the [seven_zip](https://github.com/daptiv/seven_zip) default recipe.
 
@@ -12,14 +10,6 @@ For Windows7 SP1 and Windows Server 2008 SP1 you must first install [KB2664825](
 Windows 7
 Windows 2008
 
-.NET Framework 4.5
-
-# Usage
-
-Set the `node['visualstudio']['source']` attribute to the download location of the VisualStudio ISO and add 'visualstudio::default' to your runlist. For example: http://example.com/installs
-
-By default this cookbook assumes you're installing VisualStudio 2012 Ultimate. If you'd like to install another version set the 'edition' attribute to: 'professional', 'premium', or 'testprofessional'.
-
 # Attributes
 
 ## Required
@@ -27,9 +17,8 @@ By default this cookbook assumes you're installing VisualStudio 2012 Ultimate. I
 
 ## Optional
 * `node['visualstudio']['enable_nuget_package_restore']` - true or false. Sets the system wide environment variable to enable MSBuild/VisualStudio package restore on build. This defaults to true.
-* `node['visualstudio']['checksum']` - SHA256 checksum of the ISO.
-* `node['visualstudio']['package_name']` - The name of the package as it shows in Add/Remove programs. Defaults to Microsoft Visual Studio Ultimate 2012.
-* `node['visualstudio']['installer_file']` - The name of the VisualStudio installer executable. Defaults to vs_ultimate.exe.
+* `node['visualstudio']['90']['edition']`
+* `node['visualstudio']['100']['edition']` - The edition of visual studio you're installing. Currently only 2008 Professional and 2010 Premium are supported.
 
 # Recipes
 
@@ -57,5 +46,5 @@ Same as above but it uses the web downloader.
 Installs the Microsoft Office Developer Tools for VS2012. Add this to your runlist if you need Office development tools for Office plugin development.
 
 # Author
-
-Author:: Shawn Neal (sneal@daptiv.com)
+Original author: Shawn Neal (sneal@daptiv.com)
+Extended for Visual Studio 2008 and 2010 by: Justin R. Stout (justinrstout@justinrstout.com)
