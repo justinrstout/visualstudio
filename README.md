@@ -13,12 +13,12 @@ Windows 2008
 # Attributes
 
 ## Required
-* `node['visualstudio']['source']` - Required, fully qualified http(s) path to the ISO directory. For example: http://example.com/installs
+* `node['visualstudio']['source']` - Path to folder that contains the Visual Studio ISOs. Can be a local path or a URL.
 
 ## Optional
 * `node['visualstudio']['enable_nuget_package_restore']` - true or false. Sets the system wide environment variable to enable MSBuild/VisualStudio package restore on build. This defaults to true.
 * `node['visualstudio']['90']['edition']`
-* `node['visualstudio']['100']['edition']` - The edition of visual studio you're installing. Currently only 2008 Professional and 2010 Premium are supported.
+* `node['visualstudio']['100']['edition']` - The editions of Visual Studio to install. Currently only 2008 Professional and 2010 Premium are supported.
 
 # Recipes
 
@@ -47,4 +47,5 @@ Installs the Microsoft Office Developer Tools for VS2012. Add this to your runli
 
 # Author
 Original author: Shawn Neal (sneal@daptiv.com)
+
 Extended for Visual Studio 2008 and 2010 by: Justin R. Stout (justinrstout@justinrstout.com)
