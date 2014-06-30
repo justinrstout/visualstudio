@@ -10,40 +10,34 @@ For Windows7 SP1 and Windows Server 2008 SP1 you must first install [KB2664825](
 Windows 7
 Windows 2008
 
+# Usage
+Obtain the ISOs for the versions of Visual Studio you want to install, and set `node['visualstudio']['source']` as explained below.
+
 # Attributes
 
 ## Required
 * `node['visualstudio']['source']` - Path to folder that contains the Visual Studio ISOs. Can be a local path or a URL.
 
 ## Optional
-* `node['visualstudio']['enable_nuget_package_restore']` - true or false. Sets the system wide environment variable to enable MSBuild/VisualStudio package restore on build. This defaults to true.
 * `node['visualstudio']['90']['edition']`
 * `node['visualstudio']['100']['edition']` - The editions of Visual Studio to install. Currently only 2008 Professional and 2010 Premium are supported.
 
 # Recipes
 
-## default
-Ensures all VisualStudio prereqs are installed first and then only runs the install recipe if they are met. You should add this recipe to your run list.
+## install_vs100
+Installs Visual Studio 10.0 (2010)
 
-## install
-Installs VisualStudio 2012 using the included AdminDeployment.xml. Ensures 7-zip is installed so the ISO can be extracted via the seven_zip cookbook. Included by the default recipe.
+## install_vs100sp1
+Installs Visual Studio 10.0 Service Pack 1
 
-## nuget
-Configures the enable_nuget_package_restore environment variable. Included by the default recipe.
+## install_vs90
+Installs Visual Studio 9.0 (2008)
 
-## dotnet_prereq
-Logs a warning if .NET 4.5 is not installed. This is included in the default recipe.
+## install_vs90sp1
+Installs Visual Studio 9.0 Service Pack 1
 
-# Optional Recipes
-
-## install_update
-Installs VS 2012 SP4 from the VS2012.4.iso. Add this to your runlist to update to the latest VS2012 SP. By default you must place the iso in the same folder as the VS 2012 iso.
-
-## install_updateweb
-Same as above but it uses the web downloader.
-
-## install_vsto
-Installs the Microsoft Office Developer Tools for VS2012. Add this to your runlist if you need Office development tools for Office plugin development.
+## install_tfpt
+Installs TFS 2010 Power Tools
 
 # Author
 Original author: Shawn Neal (sneal@daptiv.com)
