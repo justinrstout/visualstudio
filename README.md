@@ -19,8 +19,8 @@ Obtain the ISOs for the versions of Visual Studio you want to install, and set `
 * `node['visualstudio']['source']` - Path to folder that contains the Visual Studio ISOs. Can be a local path or a URL.
 
 ## Optional
-* `node['visualstudio']['90']['edition']`
-* `node['visualstudio']['100']['edition']` - The editions of Visual Studio to install. Currently only 2008 Professional and 2010 Premium are supported.
+* `node['visualstudio']['9.0']['edition']`
+* `node['visualstudio']['10.0']['edition']` - The editions of Visual Studio to install. Currently only 2008 Professional and 2010 Premium are supported.
 
 # Recipes
 

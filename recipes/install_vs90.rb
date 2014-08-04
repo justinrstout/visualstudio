@@ -1,45 +1,35 @@
-::Chef::Recipe.send(:include, Visualstudio::Helper)
+::Chef::Recipe.send(:include, VisualStudio::Helper)
 
 include_recipe 'seven_zip'
 
-vs90_is_installed = is_vs90_installed?()
+edition = node['visualstudio']['9.0']['edition']
 
-edition = node['visualstudio']['90']['edition']
-install_url = File.join(node['visualstudio']['source'], node['visualstudio']['90'][edition]['filename'])
-install_log_file = win_friendly_path(File.join(node['visualstudio']['90']['install_dir'], 'vsinstall.log'))
+vs90_is_installed = is_vs_installed?('9.0', edition)
 
-iso_extraction_dir = win_friendly_path(File.join(Chef::Config[:file_cache_path], 'visualstudio'))
-setup_exe_path = File.join(iso_extraction_dir, node['visualstudio']['90'][edition]['installer_file'])
+install_url = win_friendly_path(File.join(node['visualstudio']['source'], node['visualstudio']['9.0'][edition]['filename']))
+install_log_file = win_friendly_path(File.join(node['visualstudio']['9.0']['install_dir'], 'vsinstall.log'))
+iso_extraction_dir = win_friendly_path(File.join(Chef::Config[:file_cache_path], 'visualstudio90'))
+setup_exe_path = win_friendly_path(File.join(iso_extraction_dir, node['visualstudio']['9.0'][edition]['installer_file']))
 
-ini_path = File.join(Chef::Config[:file_cache_path], 'vs90_professional_x64_nosqlserver.ini')
+ini_path = win_friendly_path(File.join(Chef::Config[:file_cache_path], 'vs90_install.ini'))
   
-# Copy the unattend ini
 cookbook_file 'vs90_professional_x64_nosqlserver.ini' do
   path ini_path
+  only_if { edition == 'professional' }
 end
 
-# Extract the ISO image to the tmp dir
 seven_zip_archive 'extract_iso' do
   path iso_extraction_dir
   source install_url
   overwrite true
-  checksum node['visualstudio']['90'][edition]['checksum']
+  checksum node['visualstudio']['9.0'][edition]['checksum']
   not_if { vs90_is_installed }
 end
 
-# Install Visual Studio
-windows_package node['visualstudio']['90'][edition]['package_name'] do
+windows_package node['visualstudio']['9.0'][edition]['package_name'] do
   source setup_exe_path
   installer_type :custom
   options "/Q /norestart /Log \"#{install_log_file}\" /unattendfile \"#{ini_path}\""
-  notifies :delete, "directory[#{iso_extraction_dir}]"
-  timeout 3600 # 1hour
+  timeout 3600 # 1 hour
   not_if { vs90_is_installed }
-end
-
-# Cleanup extracted ISO files from tmp dir
-directory iso_extraction_dir do
-  action :nothing
-  recursive true
-  not_if { node['visualstudio']['preserve_extracted_files'] }
 end
