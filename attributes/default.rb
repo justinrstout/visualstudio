@@ -5,7 +5,7 @@ default['visualstudio']['9.0']['install_dir'] = File.join((ENV['ProgramFiles(x86
 default['visualstudio']['10.0']['install_dir'] = File.join((ENV['ProgramFiles(x86)'] || 'C:\Program Files (x86)'), 'Microsoft Visual Studio 10.0')
 
 # Set this attribute to the folder which contains the ISOs
-default['visualstudio']['source'] = 'C:\Share\visualstudio'
+default['visualstudio']['source'] = 'C:\VS'
 
 # VS 2008 Professional
 default['visualstudio']['9.0']['professional']['installer_file'] = 'Setup\setup.exe'
