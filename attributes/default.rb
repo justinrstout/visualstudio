@@ -1,8 +1,10 @@
 default['visualstudio']['9.0']['edition'] = 'professional'
 default['visualstudio']['10.0']['edition'] = 'premium'
+default['visualstudio']['11.0']['edition'] = 'premium'
 
 default['visualstudio']['9.0']['install_dir'] = File.join((ENV['ProgramFiles(x86)'] || 'C:\Program Files (x86)'), 'Microsoft Visual Studio 9.0')
 default['visualstudio']['10.0']['install_dir'] = File.join((ENV['ProgramFiles(x86)'] || 'C:\Program Files (x86)'), 'Microsoft Visual Studio 10.0')
+default['visualstudio']['11.0']['install_dir'] = File.join((ENV['ProgramFiles(x86)'] || 'C:\Program Files (x86)'), 'Microsoft Visual Studio 11.0')
 
 # Set this attribute to the folder which contains the ISOs
 default['visualstudio']['source'] = 'C:\VS'
@@ -30,3 +32,9 @@ default['visualstudio']['10.0']['sp1']['installer_file'] = 'Setup.exe'
 default['visualstudio']['10.0']['sp1']['filename'] = 'mu_visual_studio_2010_sp1_x86_dvd_651704.iso'
 default['visualstudio']['10.0']['sp1']['package_name'] = 'Microsoft Visual Studio 2010 Service Pack 1'
 default['visualstudio']['10.0']['sp1']['checksum'] = 'fce24f0e3f95fdeb54b806be3266f3b61a1e6b5b78c7e6c13c36fc1a6f5ba0ad'
+
+# VS 2012 Premium
+default['visualstudio']['11.0']['premium']['installer_file'] = 'vs_premium.exe'
+default['visualstudio']['11.0']['premium']['filename'] = 'en_visual_studio_premium_2012_x86_dvd_2262337.iso'
+default['visualstudio']['11.0']['premium']['package_name'] = 'Microsoft Visual Studio Premium 2012'
+default['visualstudio']['11.0']['premium']['checksum'] = 'dfedf14f94ee8947c269ce7d412ef196b62f0fc6b679dc88ef30aaae5b11ff80'

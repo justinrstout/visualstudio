@@ -8,6 +8,9 @@ module VisualStudio
       },
       '10.0' => {
         'premium' => 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\DevDiv\vs\Servicing\10.0\vstdcore\1033'
+      },
+      '11.0' => {
+        'premium' => 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\DevDiv\vs\Servicing\11.0\premium\1033'
       }
     }
     
