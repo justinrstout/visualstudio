@@ -1,6 +1,9 @@
 ::Chef::Recipe.send(:include, VisualStudio::Helper)
+require 'chef/win32/version'
 
 include_recipe 'seven_zip'
+
+v = Chef::ReservedNames::Win32::Version.new
 
 edition = node['visualstudio']['10.0']['edition']
   
@@ -12,8 +15,14 @@ iso_extraction_dir = win_friendly_path(File.join(Chef::Config[:file_cache_path],
 setup_exe_path = win_friendly_path(File.join(iso_extraction_dir, node['visualstudio']['10.0'][edition]['installer_file']))
 
 ini_path = win_friendly_path(File.join(Chef::Config[:file_cache_path], 'vs100_install.ini'))
-  
-cookbook_file 'vs100_premium.ini' do
+
+ini_file = if v.windows_7?
+  "vs100_premium.ini"
+elsif v.windows_8? or v.windows_8_1? or v.windows_server_2012? or v.windows_server_2012_r2?
+  "vs100_premium_8.ini"
+end
+
+cookbook_file ini_file do
   path ini_path
   only_if { edition == 'premium' }
 end
