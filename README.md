@@ -27,9 +27,13 @@ Obtain the ISOs for the versions of Visual Studio you want to install, and set `
 ## Optional
 * `node['visualstudio']['9.0']['edition']`
 * `node['visualstudio']['10.0']['edition']` 
-* `node['visualstudio']['11.0']['edition']`  - The editions of Visual Studio to install. Currently only 2008 Professional, 2010 Premium, and 2012 Premium are supported.
+* `node['visualstudio']['11.0']['edition']`
+* `node['visualstudio']['12.0']['edition']`  - The editions of Visual Studio to install. Currently only 2008 Professional, 2010 Premium, 2012 Premium, and 2013 Premium are supported.
 
 # Recipes
+
+## install_vs120
+Installs Visual Studio 12.0 (2013)
 
 ## install_vs110
 Installs Visual Studio 11.0 (2012)
