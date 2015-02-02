@@ -11,6 +11,9 @@ module VisualStudio
       },
       '11.0' => {
         'premium' => 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\DevDiv\vs\Servicing\11.0\premium\1033'
+      },
+      '12.0' => {
+        'premium' => 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\DevDiv\vs\Servicing\12.0\premium\1033'
       }
     }
     
