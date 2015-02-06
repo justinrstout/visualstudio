@@ -11,6 +11,8 @@ default['visualstudio']['12.0']['install_dir'] = File.join((ENV['ProgramFiles(x8
 # Set this attribute to the folder which contains the ISOs
 default['visualstudio']['source'] = 'C:\VS'
 
+default['visualstudio']['log_dir'] = 'C:\logs\visualstudio'
+
 # VS 2008 Professional
 default['visualstudio']['9.0']['professional']['installer_file'] = 'Setup\setup.exe'
 default['visualstudio']['9.0']['professional']['filename'] = 'en_visual_studio_2008_professional_x86_dvd_x14-26326.iso'

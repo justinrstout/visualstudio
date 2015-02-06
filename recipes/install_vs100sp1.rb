@@ -5,7 +5,7 @@ include_recipe 'seven_zip'
 vs100sp1_is_installed = is_vs_sp_installed?('10.0', node['visualstudio']['10.0']['edition'])
 
 install_url = win_friendly_path(File.join(node['visualstudio']['source'], node['visualstudio']['10.0']['sp1']['filename']))
-install_log_file = win_friendly_path(File.join(node['visualstudio']['10.0']['install_dir'], 'vsinstallsp1.log'))
+install_log_file = win_friendly_path(File.join(node['visualstudio']['log_dir'], 'vs100sp1install.log'))
 iso_extraction_dir = win_friendly_path(File.join(Chef::Config[:file_cache_path], 'visualstudio100sp1'))
 setup_exe_path = win_friendly_path(File.join(iso_extraction_dir, node['visualstudio']['10.0']['sp1']['installer_file']))
 

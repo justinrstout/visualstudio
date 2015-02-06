@@ -3,7 +3,7 @@ maintainer       'Justin R. Stout'
 maintainer_email 'justinrstout@justinrstout.com'
 license          'Apache 2.0'
 description      'Installs Visual Studio'
-version          '0.4.0'
+version          '0.6.0'
 
 depends 'windows'
 depends 'seven_zip'

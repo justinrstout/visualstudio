@@ -25,6 +25,8 @@ Obtain the ISOs for the versions of Visual Studio you want to install, and set `
 * `node['visualstudio']['source']` - Path to folder that contains the Visual Studio ISOs. Can be a local path or a URL.
 
 ## Optional
+* `node['visualstudio']['log_dir']` - The directory to put installer log files. Default: `C:\logs\visualstudio
+
 * `node['visualstudio']['9.0']['edition']`
 * `node['visualstudio']['10.0']['edition']` 
 * `node['visualstudio']['11.0']['edition']`
