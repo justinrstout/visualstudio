@@ -26,6 +26,20 @@ seven_zip_archive 'extract_iso' do
   not_if { vs120_is_installed }
 end
 
+# Workaround for https://github.com/chef/knife-windows/issues/172
+ruby_block 'keep alive' do
+  block do
+    Thread.new {
+      counter = 0
+      while counter < 60
+        Chef::Log.info("keep alive")
+        sleep 60
+        counter += 1
+      end
+    }
+  end
+end
+
 windows_package node['visualstudio']['12.0'][edition]['package_name'] do
   source setup_exe_path
   installer_type :custom

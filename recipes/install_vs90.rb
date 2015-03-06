@@ -49,6 +49,20 @@ windows_package 'Microsoft Visual Studio Web Authoring Component' do
   not_if { vs90_is_installed }
 end
 
+# Workaround for https://github.com/chef/knife-windows/issues/172
+ruby_block 'keep alive' do
+  block do
+    Thread.new {
+      counter = 0
+      while counter < 60
+        Chef::Log.info("keep alive")
+        sleep 60
+        counter += 1
+      end
+    }
+  end
+end
+
 setup_path = win_friendly_path(File.join(iso_extraction_dir, 'Setup\setup.exe'))
 windows_package node['visualstudio']['9.0'][edition]['package_name'] do
   source setup_path
